@@ -11,4 +11,10 @@ services:
       - key: PORT
         value: 8000
       - key: SECRET_KEY
-        generateValue: true 
+        generateValue: true  # Render 会自动生成安全的随机密钥
+      - key: SPARKAI_APP_ID
+        value: 6126ea78
+      - key: SPARKAI_API_SECRET
+        value: OTgxMmNmNjlhNjcxOGI5YTZkZjI5NWZk
+      - key: SPARKAI_API_KEY
+        value: 9a551368ad829cf9d47e9cc22716a179 
