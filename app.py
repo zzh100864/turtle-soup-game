@@ -868,11 +868,8 @@ def send_message(prompt):
 
         print("发送请求数据:", json.dumps(request_data, ensure_ascii=False))
         
-        ws = websocket.WebSocket()
-        ws.connect(
-            get_spark_auth_url(),
-            sslopt={"cert_reqs": ssl.CERT_NONE}
-        )
+        ws = websocket.WebSocket(sslopt={"cert_reqs": ssl.CERT_NONE})
+        ws.connect(get_spark_auth_url())
         
         ws.send(json.dumps(request_data))
         
@@ -1095,4 +1092,4 @@ def index():
 if __name__ == '__main__':
     load_rooms()  # 加载已保存的房间数据
     port = int(os.environ.get('PORT', 8000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run(host='0.0.0.0', port=port)
